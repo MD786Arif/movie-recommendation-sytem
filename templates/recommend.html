@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Movies</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #c1d3e5;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .movie-card {
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            height: 100%; /* Ensure the image takes the full height of the card */
+            object-fit: cover; /* Preserve aspect ratio and cover the entire container */
+        }
+
+        .card-title {
+            margin-top: 10px;
+        }
+
+        .heading {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #031221;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h2 class="heading">Explore Recommended Movies</h2>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <!-- Loop through recommended movies and create movie cards -->
+            {% for recommended_movie in recommended_movies[0] %}
+                <div class="col-md-4 movie-card">
+                    <div class="card">
+                        <img src="{{ recommended_movies[1][loop.index0] }}" class="card-img-top" alt="Movie Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ recommended_movie }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
